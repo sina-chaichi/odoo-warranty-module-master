@@ -1,0 +1,36 @@
+<odoo>
+  <data>
+
+    <!-- form to view registery fields to the user -->
+    <record model="ir.ui.view" id="provider_form_view">
+      <field name="name">provider.form</field>
+      <field name="model">res.users</field>
+      <field name="arch" type="xml">
+          <form string="provider Form">
+              <sheet>
+                  <group>
+                      <field name="active"/>
+                      <!-- <field name="login"/> -->
+                  </group>
+              </sheet>
+          </form>
+      </field>
+    </record>
+
+    <!-- view list of the warranties sorted by providers -->
+
+    <record model="ir.ui.view" id="provider_tree_view">
+        <field name="name">provider.tree</field>
+        <field name="model">warranty.provider</field>
+        <field name="arch" type="xml">
+            <tree string="provider List">
+              <field name="active"/>
+              <!-- <field name="login"/> -->
+            </tree>
+        </field>
+    </record>
+
+
+
+  </data>
+</odoo>

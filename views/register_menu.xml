@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+
+        <record model="ir.actions.act_window" id="register_list_action">
+            <field name="name">Registered Warranties</field>
+            <field name="res_model">warranty.register</field>
+            <!-- <field name="view_type">form</field> -->
+            <field name="view_mode">tree,form,kanban,pivot</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_smiling_face">Register the first warranty</p>
+            </field>
+        </record>
+
+        <!-- top level menu: no parent -->
+        <menuitem id="main_warranty_menu" name="Warranty"/>
+        
+        <menuitem id="warranty_menu" name="Warranty"
+                  parent="main_warranty_menu"/>
+   
+        <menuitem id="register_menu" name="Warranty List" parent="warranty_menu"
+                  action="register_list_action"/>
+        
+
+
+
+</odoo>

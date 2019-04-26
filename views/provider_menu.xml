@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+
+        <record model="ir.actions.act_window" id="provider_list_action">
+            <field name="name">providers</field>
+            <field name="res_model">res.users</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        
+        <menuitem id="provider_menu" name="providers"
+                  parent="main_warranty_menu" action="provider_list_action"/>
+                  
+        
+
+
+
+</odoo>

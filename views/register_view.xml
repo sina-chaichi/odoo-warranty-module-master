@@ -1,0 +1,118 @@
+<odoo>
+  <data>
+
+    <!-- form to view registery fields to the user -->
+    <record model="ir.ui.view" id="register_form_view">
+      <field name="name">register.form</field>
+      <field name="model">warranty.register</field>
+      <field name="arch" type="xml">
+          <form string="Register Form">
+              <sheet>
+                  <group>
+                      <field name="name"/>
+                      <field name="warranty_type"/>
+                      <field name="warranty_state"/>
+                      <field name="date_start"/>
+                      <field name="date_end"/>
+                      <field name="customer" widget="many2onebutton"/>
+                      <field name="provider" widget="many2onebutton"/>
+                  </group>
+              </sheet>
+
+              <div class="oe_chatter">
+                <field name="message_follower_ids" 
+                       widget="mail_followers"
+                       groups="base.group_user"/>
+                <field name="message_ids" widget="mail_thread"/>
+              </div>
+
+          </form>
+      </field>
+    </record>
+
+    <!-- view list of the warranties sorted by customers -->
+
+    <record model="ir.ui.view" id="register_tree_view">
+        <field name="name">register.tree</field>
+        <field name="model">warranty.register</field>
+        <field name="arch" type="xml">
+            <tree string="Register List">
+              <field name="name"/>
+              <field name="warranty_type"/>
+              <field name="warranty_state"/>
+              <field name="date_start"/>
+              <field name="date_end"/>
+              <field name="customer" widget="many2onebutton"/>
+              <field name="provider" widget="many2onebutton"/>
+            </tree>
+        </field>
+    </record>
+
+     <record id="warranty_kanban" model="ir.ui.view">
+        <field name="model">warranty.register</field>
+        <field name="arch" type="xml">
+            <kanban>
+            <field name="name" type="row" />
+            <field name="warranty_type" type="row" />
+            </kanban>
+        </field>
+    </record>
+
+
+    <record id="warranty_pivot" model="ir.ui.view">
+        <field name="model">warranty.register</field>
+        <field name="arch" type="xml">
+            <pivot>
+            <field name="name" type="row" />
+            <field name="warranty_type" type="row" />
+            </pivot>
+        </field>
+    </record>
+
+    <!-- a view to send a message when warranty state changes -->
+ 
+
+    <record model="ir.ui.view" id="register_search_view">
+        <field name="name">register.search</field>
+        <field name="model">warranty.register</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="warranty_state"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+            </search>
+        </field>
+    </record>
+
+
+    <!-- form to view and define state of warranty  -->
+    <record model="ir.ui.view" id="state_form_view">
+      <field name="name">state.form</field>
+      <field name="model">warranty.state</field>
+      <field name="arch" type="xml">
+          <form string="Warranty State Form">
+              <sheet>
+                  <group>
+                      <field name="state_name"/>
+                  </group>
+              </sheet>
+          </form>
+      </field>
+    </record>
+
+
+    <!-- Add Kanban view to the warranty states-->
+    <record id="state_kanban" model="ir.ui.view">
+      <field name="model">warranty.state</field>
+      <field name="arch" type="xml">
+        <kanban>
+          <field name="state_name"/>
+        </kanban>
+      </field>
+    </record>
+
+
+
+  </data>
+</odoo>
